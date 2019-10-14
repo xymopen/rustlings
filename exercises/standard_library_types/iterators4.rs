@@ -11,13 +11,11 @@ pub fn factorial(num: u64) -> u64 {
     // - recursion
     // Scroll down for hints.
 
-    let mut n = 1;
-
-    for i in 1..=num {
-        n *= i;
+    if num == 1 {
+        1
+    } else {
+        num * factorial(num - 1)
     }
-
-    n
 }
 
 #[cfg(test)]
