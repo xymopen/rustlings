@@ -10,6 +10,14 @@ pub fn factorial(num: u64) -> u64 {
     // For the most fun don't use:
     // - recursion
     // Scroll down for hints.
+
+    let mut n = 1;
+
+    for i in 1..=num {
+        n *= i;
+    }
+
+    n
 }
 
 #[cfg(test)]
