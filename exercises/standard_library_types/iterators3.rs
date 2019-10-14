@@ -72,16 +72,8 @@ mod tests {
     fn result_with_list() {
         let numbers = vec![27, 297, 38502, 81];
         let division_results = numbers.into_iter().map(|n| divide(n, 27));
-        let x: Result<_, DivisionError> = Ok(division_results
-            .filter(|r| {
-                if let Ok(n) = r {
-                    true
-                } else {
-                    false
-                }
-            })
-            .map(|n| n.unwrap())
-            .collect::<Vec<_>>());
+        let x: Result<_, DivisionError> = division_results
+            .collect::<Result<Vec<i32>, DivisionError>>();
         assert_eq!(format!("{:?}", x), "Ok([1, 11, 1426, 3])");
     }
 
